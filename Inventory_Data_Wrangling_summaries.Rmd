@@ -1,0 +1,54 @@
+---
+title: "Inventory Data Wrangling and Data Summaries"
+author: "Natalie Love"
+date: "2/24/2021"
+output: html_document
+---
+
+## Load packages
+```{r}
+library(tidyverse)
+library(sf)
+library(sp)
+library(rgdal)
+```
+
+## Load Data
+```{r}
+#5,351,948 observations
+inventory_data_cleaned <- read_csv("data/inventory_data_raw/all_clean_nodups_inCA.csv",
+                                   col_types = cols(
+                                     ID = col_double(),
+                                     SCIENTIFIC_ORIG = col_character(),
+                                     COMMON_ORIG = col_character(),
+                                     LATITUDE = col_double(),
+                                     LONGITUDE = col_double(),
+                                     DBH_LO = col_double(),
+                                     DBH_HI = col_double(),
+                                     CREATED = col_date(),
+                                     UPDATED = col_date(),
+                                     SOURCE = col_character(),
+                                     Genus_matched = col_character(),
+                                     Specific_epithet_matched = col_character(),
+                                     Infraspecific_epithet_matched = col_character(),
+                                     Name_matched_accepted_family = col_character(),
+                                     ID_SRC_DEPN = col_double(),
+                                     HEIGHT_LO = col_double(),
+                                     HEIGHT_HI = col_double(),
+                                     STEMS = col_double(),
+                                     TRUNKS = col_double(),
+                                     CANOPY = col_double(),
+                                     county_name = col_character(),
+                                     zip_code = col_double(),
+                                     place_name = col_character()
+                                   ))
+head(inventory_data_cleaned)
+
+climate_zones <- st_read("data/shape_files/regions_stratum_edit/stratum_edited.shp")
+```
+
+# 1. Summarize some data
+```{r}
+
+```
+
